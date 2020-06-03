@@ -9,7 +9,7 @@ public class Box : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<GameManager>().IncreaseBoxQuantity();
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class Box : MonoBehaviour
     {
         if (collisionInfo.gameObject.CompareTag("Ball"))
         {
+            FindObjectOfType<GameManager>().DecreaseBoxQuantity();
             Instantiate(boxSound, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
